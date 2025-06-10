@@ -1,13 +1,28 @@
 import axios from "axios";
 import ejs from "ejs";
 import path from "path";
-import { chromium } from "playwright";
+import puppeteer from "puppeteer";
 
+
+// async function generateInvoicePDF(htmlContent, filePath) {
+//   const browser = await chromium.launch({ headless: true });
+//   const page = await browser.newPage();
+//   await page.setContent(htmlContent, { waitUntil: "load" });
+
+//   await page.pdf({
+//     path: filePath,
+//     format: "A4",
+//     printBackground: true,
+//   });
+
+//   await browser.close();
+// }
 
 async function generateInvoicePDF(htmlContent, filePath) {
-  const browser = await chromium.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.setContent(htmlContent, { waitUntil: "load" });
+
+  await page.setContent(htmlContent, { waitUntil: "networkidle0" });
 
   await page.pdf({
     path: filePath,
@@ -17,7 +32,6 @@ async function generateInvoicePDF(htmlContent, filePath) {
 
   await browser.close();
 }
-
 
 export const generateInvoice = async (req, res) => {
   try {
