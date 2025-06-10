@@ -1,26 +1,23 @@
 {
-  "name": "node-socket",
+  "name": "invoice",
   "version": "1.0.0",
-  "description": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
-  "keywords": [
-    "node",
-    "socket"
-  ],
-  "author": "Tailor",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    "axios": "^1.7.9",
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
+    "axios": "^1.8.1",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
-    "nodemon": "^3.1.0",
-    "puppeteer": "19.11.1"
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "nodemon": "^3.1.9",
+    "path": "^0.12.7",
+    "pdfkit": "^0.16.0",
+    "pdfkit-table": "^0.1.99"
   }
 }
